@@ -16,9 +16,24 @@ var commentRoutes         = require("./routes/comments"),
     campgroundRoutes      = require("./routes/campgrounds"),
     indexRoutes           = require("./routes/index")
 //var seeddb = require("./seeds");
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true,
-useUnifiedTopology: true
+// mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true,
+// useUnifiedTopology: true
+// });
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://Arpit:12345@cluster0-cqrno.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true , useUnifiedTopology: true});
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
+
+
+// mongoose.connect("mongodb://Arpit:12345@cluster0-cqrno.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true,
+// useUnifiedTopology: true
+//  });
+//mongodb+srv://Arpit:12345@cluster0-cqrno.mongodb.net/test?retryWrites=true&w=majority
 app.use(body.urlencoded({extended:true}));
 app.use(express.static(__dirname+ "/public"));
 app.use(flash());
