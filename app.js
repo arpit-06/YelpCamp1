@@ -19,14 +19,8 @@ var commentRoutes         = require("./routes/comments"),
 // mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true,
 // useUnifiedTopology: true
 // });
-
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://Arpit:12345@cluster0-cqrno.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true , useUnifiedTopology: true});
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
+mongoose.connect("mongodb+srv://Arpit:12345@cluster0-cqrno.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true , 
+useUnifiedTopology: true
 });
 
 
@@ -69,6 +63,6 @@ app.use(indexRoutes);
 app.use(campgroundRoutes);
 app.use(commentRoutes);
 
-app.listen(3000, function(){
-    console.log("The YelpCamp Server is starting!!!!")
+app.listen((process.env.PORT || 5000), function(){
+    console.log("The YelpCamp Server is starting on port!");
 });
