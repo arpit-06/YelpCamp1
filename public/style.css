@@ -1,0 +1,25 @@
+#top{
+    margin-top: 100px;
+}
+.img-thumbnail img{
+    width: 100%;
+}
+.img-thumbnail{
+    padding: 0;
+}
+.img-thumbnail .caption-full{
+    padding: 9px;
+}
+.delete-form{
+    display: inline;
+}
+.jumbotron{
+    background: url(http://i.imgur.com/2LSMCmJ.jpg);
+}
+#bottom{
+    padding-top: 60px;
+}
+#form{
+    margin-top: 100px;
+    width: 30%;
+}
